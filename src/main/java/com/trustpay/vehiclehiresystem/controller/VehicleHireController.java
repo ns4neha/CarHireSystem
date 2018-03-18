@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RefreshScope
 @RestController
@@ -21,6 +20,16 @@ public class VehicleHireController {
     @RequestMapping(value = "/addVehicle", method = RequestMethod.POST)
     public ResponseEntity addVehicleToFleet(@RequestBody Vehicle newVehicle) {
 
-        return new ResponseEntity<Object>(vehicleHireService.addNewVehicleToTheFleet(), HttpStatus.CREATED);
+        vehicleHireService.addNewVehicleToTheFleet();
+        return new ResponseEntity<Object>(HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/getVehicleInfo",
+            method = RequestMethod.GET,
+            params = {"bookingStatus"})
+    @ResponseBody
+    public List<Vehicle> getVehicleInfo(@RequestParam("bookingStatus") Boolean bookingStatus) {
+
+        return vehicleHireService.getAllVehicles();
     }
 }
