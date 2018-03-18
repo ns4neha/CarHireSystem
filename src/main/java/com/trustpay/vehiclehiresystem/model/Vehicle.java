@@ -10,11 +10,10 @@ import javax.validation.constraints.NotNull;
 public class Vehicle {
 
     private Long id;
-    private String vehicleType;
+    private VehicleType vehicleType;
 
     private Integer numberOfWheels;
-
-    private Integer passengers;
+    private Integer passengersAllowed;
 
     private Boolean booked;
 }
