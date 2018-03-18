@@ -32,4 +32,11 @@ public class VehicleHireController {
 
         return vehicleHireService.getAllVehicles();
     }
+
+    @RequestMapping(value = "/allocateVehicle", method = RequestMethod.POST)
+    public ResponseEntity allocateVehicleToCustomer(@RequestBody Vehicle newVehicle) {
+
+        vehicleHireService.allocateVehicleToCustomer();
+        return new ResponseEntity<Object>(HttpStatus.CREATED);
+    }
 }

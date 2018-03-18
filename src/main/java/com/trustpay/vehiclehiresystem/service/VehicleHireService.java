@@ -17,5 +17,9 @@ public class VehicleHireService {
     public List<Vehicle> getAllVehicles() {
         return new ArrayList<Vehicle>();
     }
+
+    public void allocateVehicleToCustomer() {
+
+    }
 }
 
