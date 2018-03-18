@@ -1,12 +1,12 @@
-package com.trustpay.carhiresystem;
+package com.trustpay.vehiclehiresystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CarhiresystemApplication {
+public class VehiclehiresystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CarhiresystemApplication.class, args);
+		SpringApplication.run(VehiclehiresystemApplication.class, args);
 	}
 }
