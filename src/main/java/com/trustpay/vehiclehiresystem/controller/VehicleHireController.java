@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RefreshScope
-@RestController(value = "/vehicles")
+@RestController
+@RequestMapping("/vehicles")
 public class VehicleHireController {
 
     @Autowired
@@ -26,15 +26,13 @@ public class VehicleHireController {
     public ResponseEntity<String> addVehicleToFleet(@RequestBody Vehicle newVehicle) {
 
         return new ResponseEntity<String>
-                ("New Vehicle created with id " + vehicleHireService.addNewVehicleToTheFleet(newVehicle)
+                ("{\"id\": " + vehicleHireService.addNewVehicleToTheFleet(newVehicle) + "}"
                         , HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/getVehicleInfo",
-            method = RequestMethod.GET,
-            params = {"bookingStatus"})
+    @GetMapping(value = "/getVehicleInfo")
     @ResponseBody
-    public List<Vehicle> getVehicleInfo(@RequestParam("bookingStatus") Boolean bookingStatus) {
+    public List<Vehicle> getVehicleInfo(@RequestParam(value = "bookingStatus", required = false) Boolean bookingStatus) {
 
         return vehicleHireService.getAllVehicles(bookingStatus);
     }

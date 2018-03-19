@@ -16,7 +16,7 @@ public class VehicleHireService {
     @Autowired
     VehicleBookingRepository vehicleBookingRepository;
 
-    public Long addNewVehicleToTheFleet(Vehicle vehicle) {
+    public Integer addNewVehicleToTheFleet(Vehicle vehicle) {
 
         return vehicleBookingRepository.save(vehicle);
     }
@@ -25,11 +25,9 @@ public class VehicleHireService {
         List<Vehicle> vehicles = new ArrayList<Vehicle>();
         if (bookingStatus == null) {
             vehicles = vehicleBookingRepository.findAll();
-        }
-        if (bookingStatus) {
+        } else if (bookingStatus) {
             vehicles = vehicleBookingRepository.findByBookedTrue();
-        }
-        if (!bookingStatus) {
+        } else {
             vehicles = vehicleBookingRepository.findByBookedFalse();
         }
         return vehicles;
