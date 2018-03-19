@@ -2,12 +2,14 @@ package com.trustpay.vehiclehiresystem.repository;
 
 import com.trustpay.vehiclehiresystem.model.Customer;
 import com.trustpay.vehiclehiresystem.model.Vehicle;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Repository
 public class VehicleBookingRepository {
 
     Map<Long, Vehicle> vehicleMap = Collections.synchronizedMap(new HashMap<Long,Vehicle>());
