@@ -1,12 +1,14 @@
 package com.trustpay.vehiclehiresystem.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @NotNull
 public class Customer {
 

@@ -32,9 +32,9 @@ public class VehicleHireController {
 
     @GetMapping(value = "/getVehicleInfo")
     @ResponseBody
-    public List<Vehicle> getVehicleInfo(@RequestParam(value = "bookingStatus", required = false) Boolean bookingStatus) {
+    public List<Vehicle> getVehicleInfo(@RequestParam(value = "isBooked", required = false) Boolean isBooked) {
 
-        return vehicleHireService.getAllVehicles(bookingStatus);
+        return vehicleHireService.getAllVehicles(isBooked);
     }
 
     @RequestMapping(value = "/bookVehicle", method = RequestMethod.POST)

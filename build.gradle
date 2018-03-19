@@ -36,6 +36,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-web-services')
 	compile('org.springframework.cloud:spring-cloud-starter')
+	compile group: 'org.json', name: 'json', version: '20180130'
 	//compile('org.springframework.cloud:spring-cloud-starter-oauth2')
 	//runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok')

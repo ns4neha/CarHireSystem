@@ -36,16 +36,16 @@ public class VehicleBookingRepository {
 
     public List<Vehicle> findByBookedTrue() {
 
-        return vehicleMap.values().stream().filter(v -> v.getBooked().equals(true)).collect(Collectors.toList());
+        return vehicleMap.values().stream().filter(v -> v.isBooked()).collect(Collectors.toList());
     }
 
     public List<Vehicle> findByBookedFalse() {
 
-        return vehicleMap.values().stream().filter(v -> v.getBooked().equals(false)).collect(Collectors.toList());
+        return vehicleMap.values().stream().filter(v -> !v.isBooked()).collect(Collectors.toList());
     }
 
     public boolean allocateVehiclesToCustomer(List<Integer> vehicleIdList, Customer customer) {
-        Optional<Integer> isVehicleAlreadyBooked = vehicleIdList.stream().filter(id -> vehicleMap.get(id).getBooked().equals(true)).findAny();
+        Optional<Integer> isVehicleAlreadyBooked = vehicleIdList.stream().filter(id -> vehicleMap.get(id).isBooked()).findAny();
 
         isVehicleAlreadyBooked.ifPresent((vehicleId) -> {throw new UnsupportedOperationException(
                 MessageFormat.format("%s vehicle is already booked. Cannot allocate this now to a new customer", vehicleId));});
